@@ -2,7 +2,9 @@
 # Using memcache itself to store semaphores
 
 import cPickle
+from eventlet import api, httpd, coros, util
 import memcache
+from mulib import mu, stacked, resources
 
 class MemcacheWrapper:
     def __init__(self): 
