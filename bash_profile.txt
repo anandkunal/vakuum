@@ -1,0 +1,30 @@
+# Beloved PATH
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin"
+export MANPATH=/opt/local/share/man:$MANPATH
+
+# Use TextMate for editing things (mostly commit messages)
+export EDITOR='mate -w'
+export SVN_EDITOR='mate -w'
+export VISUAL='mate -w'
+
+# PS1 awesomeness
+export PS1="\w\[\033[31m\]\$(parse_git_branch) \[\033[00m\]>: "
+
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (git::\1)/'
+}
+ 
+git config --global alias.who "!echo ; echo ; echo \"\tworking as \`git config user.name\`...\" ; echo ; echo"
+git config --global alias.st "!git who ; git status"
+git config --global alias.ci "!git who ; git commit"
+git config --global alias.co "!git who ; git checkout"
+git config --global alias.get "!git who ; git pull"
+git config --global alias.put "!git who ; git push"
+ 
+alias desk='cd ~/Desktop/'
+alias docs='cd ~/Documents/'
+alias gitpp='git pull && git push'
+alias h=history
+alias l='ls -al'
+alias repo='cd ~/Documents/Repositories/'
+alias sshsnap='ssh snapp.me -lkanand'
